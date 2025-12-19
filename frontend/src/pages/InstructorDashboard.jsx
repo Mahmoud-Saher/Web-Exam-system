@@ -1,14 +1,13 @@
-// src/pages/InstructorDashboard.jsx
+
 
 import React, { useState } from 'react';
 import styles from './InstructorDashboard.module.css';
 
-// 1. استيراد المكونات
 import QuestionBank from '../components/instructor/QuestionBank';
-import ExamManagement from '../components/instructor/ExamManagement'; // <-- إضافة هذا السطر
+import ExamManagement from '../components/instructor/ExamManagement'; 
 
 function InstructorDashboard() {
-  const [view, setView] = useState('exams'); // <-- إرجاع القيمة الافتراضية إلى 'exams'
+  const [view, setView] = useState('exams'); 
 
   return (
     <div className={styles.container}>
@@ -31,7 +30,6 @@ function InstructorDashboard() {
 
       <div>
         {view === 'exams' && (
-          // 2. استبدال النص المؤقت
           <ExamManagement />
         )}
 
