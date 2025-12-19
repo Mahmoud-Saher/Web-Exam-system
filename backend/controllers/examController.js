@@ -1,16 +1,13 @@
-// backend/controllers/examController.js
 
 const Exam = require('../models/Exam');
 const Question = require('../models/Question');
 const Submission = require('../models/Submission');
 const User = require('../models/User');
 
-// دالة مساعدة لتوليد كود عشوائي
 const generateCode = () => {
   return Math.random().toString(36).substring(2, 8).toUpperCase();
 };
 
-// 1. إنشاء امتحان (مع كود Access Code)
 exports.createExam = async (req, res) => {
   try {
     const { title, timeLimit, userId, questionIds } = req.body;
@@ -34,7 +31,6 @@ exports.createExam = async (req, res) => {
   }
 };
 
-// 2. جلب امتحانات معلم معين
 exports.getExamsByInstructor = async (req, res) => {
   try {
     const { userId } = req.query;
@@ -61,7 +57,6 @@ exports.getAllExams = async (req, res) => {
   }
 };
 
-// 4. جلب امتحان واحد بالتفاصيل (لصفحة الامتحان)
 exports.getExamById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -79,7 +74,6 @@ exports.getExamById = async (req, res) => {
   }
 };
 
-// 5. البحث عن امتحان بالكود (للطالب)
 exports.getExamByCode = async (req, res) => {
   try {
     const { code } = req.params;
@@ -94,7 +88,6 @@ exports.getExamByCode = async (req, res) => {
   }
 };
 
-// 6. حذف امتحان
 exports.deleteExam = async (req, res) => {
   try {
     const { id } = req.params;
@@ -105,7 +98,6 @@ exports.deleteExam = async (req, res) => {
   }
 };
 
-// 7. جلب نتائج امتحان معين
 exports.getExamResults = async (req, res) => {
   try {
     const { id } = req.params;
