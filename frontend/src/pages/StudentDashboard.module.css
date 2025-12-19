@@ -1,4 +1,4 @@
-/* src/pages/StudentDashboard.module.css */
+
 
 .container {
   max-width: 1200px;
@@ -6,41 +6,41 @@
 }
 
 .title {
-  font-size: 2rem; /* 32px */
+  font-size: 2rem; 
   font-weight: 700;
   color: #1f2937;
-  margin-bottom: 1.5rem; /* 24px */
+  margin-bottom: 1.5rem; 
 }
 
-/* --- شبكة الامتحانات --- */
+
 .examGrid {
   display: grid;
-  /* 3 أعمدة في الشاشات الكبيرة، 2 في المتوسطة، 1 في الصغيرة */
+  
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem; /* 24px */
+  gap: 1.5rem; 
 }
 
-/* تنسيق كارت الامتحان */
+
 .examCard {
-  /* سيتم تطبيق الأنماط من <Card> */
+  
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* لدفع الزر للأسفل */
+  justify-content: space-between; 
 }
 
 .examTitle {
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.5rem; 
   font-weight: 600;
   color: #1f2937;
-  margin-bottom: 0.75rem; /* 12px */
+  margin-bottom: 0.75rem; 
 }
 
 .examDetails {
   color: #4b5563;
-  margin-bottom: 1.5rem; /* 24px */
+  margin-bottom: 1.5rem; 
 }
 
-/* استجابة للموبايل */
+
 @media (max-width: 1024px) {
   .examGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -52,15 +52,15 @@
     grid-template-columns: 1fr;
   }
 }
-/* ... الأكواد القديمة ... */
 
-/* تنسيق الجدول الاحترافي */
+
+
 .historyTable {
   width: 100%;
-  border-collapse: separate; /* عشان الحواف المدورة تشتغل */
+  border-collapse: separate; 
   border-spacing: 0;
   border: 1px solid #e2e8f0;
-  border-radius: 8px; /* حواف مدورة للجدول كله */
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -79,16 +79,15 @@
   color: #334155;
 }
 
-/* تلوين الصفوف (Zebra Striping) */
+
 .historyTable tr:nth-child(even) {
   background-color: #f8fafc;
 }
 
 .historyTable tr:hover {
-  background-color: #eff6ff; /* لون أزرق خفيف جداً لما الماوس ييجي عليه */
+  background-color: #eff6ff; 
 }
 
-/* تنسيق حالة النجاح والرسوب */
 .badge {
   padding: 4px 8px;
   border-radius: 9999px;
