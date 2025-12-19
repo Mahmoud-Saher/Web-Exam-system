@@ -1,8 +1,8 @@
-// src/pages/ExamPage.jsx
+
 
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios'; // 1. استيراد axios
+import axios from 'axios'; 
 import styles from './ExamPage.module.css';
 
 import Card from '../components/ui/Card';
@@ -18,14 +18,12 @@ function ExamPage() {
   const [timeLeft, setTimeLeft] = useState(null); 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // 1. جلب الامتحان الحقيقي من السيرفر
   useEffect(() => {
     const fetchExam = async () => {
       try {
         const response = await axios.get(`http://localhost:3001/api/exams/${examId}`);
         const examData = response.data;
 
-        // التحقق إن الامتحان موجود
         if (!examData) {
           throw new Error("Exam data is empty");
         }
@@ -43,7 +41,6 @@ function ExamPage() {
     fetchExam();
   }, [examId, navigate]);
 
-  // 2. منطق التايمر
   useEffect(() => {
     if (timeLeft === null || isSubmitted) return;
 
@@ -60,12 +57,10 @@ function ExamPage() {
     return () => clearInterval(timerId);
   }, [timeLeft, isSubmitted]); 
 
-  // 3. مراقب الوقت (Auto-Submit)
   useEffect(() => {
     if (timeLeft === 0 && !isSubmitted) {
       handleSubmit();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeLeft, isSubmitted]); 
 
 
@@ -81,31 +76,25 @@ function ExamPage() {
     setIsSubmitted(true);
 
     try {
-      // 1. تجهيز البيانات
       const user = JSON.parse(localStorage.getItem('user'));
       const submissionData = {
         userId: user.id,
         examId: exam.id,
-        answers: answers // { questionId: optionIndex }
+        answers: answers 
       };
 
-      // 2. إرسال للباك اند
       const response = await axios.post('http://localhost:3001/api/submissions', submissionData);
 
-      // 3. الانتقال لصفحة النتائج مع البيانات
       navigate('/results', { state: response.data });
 
     } catch (error) {
       console.error("Error submitting exam:", error);
       alert('Error submitting exam. Please try again.');
-      setIsSubmitted(false); // عشان يقدر يحاول تاني لو فشل
+      setIsSubmitted(false); 
     }
   };
-  // --- العرض ---
   if (!exam) return <div className="p-10 text-center">Loading Exam Data...</div>;
 
-  // ملاحظة هامة: Sequelize بيرجع مصفوفة الأسئلة باسم "Questions" (أول حرف كابيتال) 
-   // أو أحياناً "questions". هنعمل فحص بسيط عشان نضمن الكود يشتغل في الحالتين
   const questionsList = exam.Questions || exam.questions || [];
   
   if (questionsList.length === 0) {
