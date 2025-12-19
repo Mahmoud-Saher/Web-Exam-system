@@ -1,4 +1,4 @@
-// src/pages/StudentDashboard.jsx
+
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -15,7 +15,6 @@ function StudentDashboard() {
   const [history, setHistory] = useState([]);    
   const [loading, setLoading] = useState(true);  
   
-  // State لكود البحث
   const [accessCode, setAccessCode] = useState('');
   const [searchError, setSearchError] = useState('');
 
@@ -23,7 +22,6 @@ function StudentDashboard() {
   const user = JSON.parse(localStorage.getItem('user'));
   const userId = user ? user.id : null;
 
-  // 1. جلب الهستري فقط
   useEffect(() => {
     const fetchHistory = async () => {
       try {
@@ -32,14 +30,13 @@ function StudentDashboard() {
         setHistory(historyRes.data);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching history:", error); // ✅ إصلاح الخطأ: استخدام المتغير error
+        console.error("Error fetching history:", error); 
         setLoading(false);
       }
     };
     fetchHistory();
   }, [userId]);
 
-  // 2. دالة البحث عن امتحان بالكود
   const handleSearchExam = async (e) => {
     e.preventDefault();
     setSearchError('');
@@ -50,7 +47,6 @@ function StudentDashboard() {
       const response = await axios.get(`http://localhost:3001/api/exams/access/${accessCode.trim()}`);
       const foundExam = response.data;
 
-      // نتأكد إنه مش مضاف قبل كده في القائمة قدامنا
       const alreadyListed = exams.find(e => e.id === foundExam.id);
       if (alreadyListed) {
         setSearchError("This exam is already listed below.");
@@ -61,7 +57,7 @@ function StudentDashboard() {
       setAccessCode('');
 
     } catch (error) {
-      console.error("Search error:", error); // ✅ إصلاح الخطأ: استخدام المتغير error
+      console.error("Search error:", error); 
       setSearchError("Invalid Code. Exam not found.");
     }
   };
@@ -81,7 +77,6 @@ function StudentDashboard() {
   return (
     <div className={styles.container}>
       
-      {/* --- قسم البحث عن امتحان --- */}
       <Card style={{ marginBottom: '2rem', textAlign: 'center' }}>
         <h2 style={{ marginBottom: '1rem', color: '#1e293b' }}>Join an Exam</h2>
         <p style={{ color: '#64748b', marginBottom: '1.5rem' }}>Enter the access code provided by your instructor.</p>
@@ -99,7 +94,6 @@ function StudentDashboard() {
         {searchError && <p style={{ color: 'red', marginTop: '10px' }}>{searchError}</p>}
       </Card>
 
-      {/* --- عرض الامتحانات التي تم البحث عنها --- */}
       {exams.length > 0 && (
         <>
           <h2 className={styles.title}>Found Exams</h2>
@@ -137,7 +131,6 @@ function StudentDashboard() {
         </>
       )}
 
-      {/* --- جدول الهستري --- */}
       <h2 className={styles.title} style={{ fontSize: '1.75rem' }}>My Exam History</h2>
       
       <Card>
