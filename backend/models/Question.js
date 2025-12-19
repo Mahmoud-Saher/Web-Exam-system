@@ -7,11 +7,10 @@ const Question = sequelize.define('Question', {
     allowNull: false
   },
   options: {
-    type: DataTypes.JSON, // ["Option A", "Option B", ...]
-    allowNull: false
+    type: DataTypes.JSON, 
   },
   correctAnswerIndex: {
-    type: DataTypes.INTEGER, // 0, 1, 2, or 3
+    type: DataTypes.INTEGER,
     allowNull: false
   }
 });
