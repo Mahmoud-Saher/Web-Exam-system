@@ -1,4 +1,3 @@
-// src/pages/ResultsPage.jsx
 
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -9,7 +8,6 @@ function ResultsPage() {
   const location = useLocation();
   const navigate = useNavigate();
   
-  // استقبال البيانات اللي جاية من صفحة الامتحان
   const resultData = location.state;
 
   if (!resultData) {
