@@ -1,19 +1,15 @@
-// backend/controllers/questionController.js
 
 const Question = require('../models/Question');
 
-// 1. إضافة سؤال جديد
 exports.createQuestion = async (req, res) => {
   try {
-    // البيانات اللي جاية من الفرونت اند
-    // userId مهم جداً عشان نعرف مين المعلم اللي حط السؤال
     const { text, options, correctAnswerIndex, userId } = req.body;
 
     const newQuestion = await Question.create({
       text,
       options,
       correctAnswerIndex,
-      UserId: userId // ربط السؤال بالمعلم
+      UserId: userId 
     });
 
     res.status(201).json(newQuestion);
@@ -22,10 +18,9 @@ exports.createQuestion = async (req, res) => {
   }
 };
 
-// 2. جلب جميع أسئلة معلم معين
 exports.getQuestionsByInstructor = async (req, res) => {
   try {
-    const { userId } = req.query; // هنجيب الـ ID من الرابط
+    const { userId } = req.query; 
 
     const questions = await Question.findAll({
       where: { UserId: userId }
@@ -37,18 +32,15 @@ exports.getQuestionsByInstructor = async (req, res) => {
   }
 };  
 
-// 3. إضافة مجموعة أسئلة من Excel (Bulk Insert)
 exports.createBulkQuestions = async (req, res) => {
   try {
-    const { questions, userId } = req.body; // questions عبارة عن مصفوفة
+    const { questions, userId } = req.body; 
 
-    // إضافة الـ userId لكل سؤال في المصفوفة
     const questionsWithUser = questions.map(q => ({
       ...q,
       UserId: userId
     }));
 
-    // أمر Sequelize السحري لإضافة مجموعة دفعة واحدة
     await Question.bulkCreate(questionsWithUser);
 
     res.status(201).json({ message: 'Questions imported successfully' });
@@ -58,7 +50,6 @@ exports.createBulkQuestions = async (req, res) => {
   }
 };
 
-// 4. حذف سؤال
 exports.deleteQuestion = async (req, res) => {
   try {
     const { id } = req.params;
