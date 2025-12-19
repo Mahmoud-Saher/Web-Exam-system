@@ -1,4 +1,4 @@
-// backend/models/Submission.js
+
 
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/database');
@@ -12,7 +12,7 @@ const Submission = sequelize.define('Submission', {
     type: DataTypes.INTEGER,
     allowNull: false
   },
-  // ممكن نخزن الإجابات التفصيلية كـ JSON لو حبينا نعمل "مراجعة" بعدين
+
   answers: {
     type: DataTypes.JSON, 
     allowNull: true
