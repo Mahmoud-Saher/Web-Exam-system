@@ -1,0 +1,32 @@
+/* src/components/layout/Header.module.css */
+
+.navbar {
+  background-color: rgb(175, 204, 232);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem; /* 16px 32px */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  color: #2c6aee; /* أزرق */
+  text-decoration: none;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* 16px */
+}
+
+.welcome {
+  color: #000000; /* رمادي */
+}

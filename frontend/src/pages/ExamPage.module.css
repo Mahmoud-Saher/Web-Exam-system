@@ -1,0 +1,104 @@
+/* src/pages/ExamPage.module.css */
+
+.pageContainer {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f3f4f6; /* رمادي فاتح */
+  min-height: calc(100vh - 80px); /* (80px هو ارتفاع الهيدر تقريباً) */
+}
+
+.examCard {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* --- هيدر الامتحان (الاسم والمؤقت) --- */
+.examHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+.examTitle {
+  font-size: 1.75rem; /* 28px */
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.timer {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 600;
+  color: #1f2937;
+  background-color: #f3f4f6;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.timerDanger {
+  color: #dc2626; /* أحمر */
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* --- جسم السؤال --- */
+.questionHeader {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+
+.questionText {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 1.5rem; /* 24px */
+}
+
+/* --- الاختيارات --- */
+.optionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* 12px */
+}
+
+.optionLabel {
+  display: block;
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.optionLabel:hover {
+  background-color: #f9fafb;
+}
+
+/* هذا الكلاس سنضيفه بالـ JS */
+.selectedOption {
+  border-color: #2563eb; /* أزرق */
+  background-color: #eff6ff; /* أزرق فاتح */
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.4);
+}
+
+.optionInput {
+  display: none; /* إخفاء الراديو الحقيقي */
+}
+
+/* --- أزرار التنقل --- */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}

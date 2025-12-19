@@ -1,0 +1,108 @@
+/* src/pages/StudentDashboard.module.css */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2rem; /* 32px */
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem; /* 24px */
+}
+
+/* --- شبكة الامتحانات --- */
+.examGrid {
+  display: grid;
+  /* 3 أعمدة في الشاشات الكبيرة، 2 في المتوسطة، 1 في الصغيرة */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; /* 24px */
+}
+
+/* تنسيق كارت الامتحان */
+.examCard {
+  /* سيتم تطبيق الأنماط من <Card> */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* لدفع الزر للأسفل */
+}
+
+.examTitle {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.75rem; /* 12px */
+}
+
+.examDetails {
+  color: #4b5563;
+  margin-bottom: 1.5rem; /* 24px */
+}
+
+/* استجابة للموبايل */
+@media (max-width: 1024px) {
+  .examGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .examGrid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ... الأكواد القديمة ... */
+
+/* تنسيق الجدول الاحترافي */
+.historyTable {
+  width: 100%;
+  border-collapse: separate; /* عشان الحواف المدورة تشتغل */
+  border-spacing: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px; /* حواف مدورة للجدول كله */
+  overflow: hidden;
+}
+
+.historyTable th {
+  background-color: #f1f5f9;
+  color: #475569;
+  font-weight: 600;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.historyTable td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+/* تلوين الصفوف (Zebra Striping) */
+.historyTable tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.historyTable tr:hover {
+  background-color: #eff6ff; /* لون أزرق خفيف جداً لما الماوس ييجي عليه */
+}
+
+/* تنسيق حالة النجاح والرسوب */
+.badge {
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badgeSuccess {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.badgeFail {
+  background-color: #fee2e2;
+  color: #991b1b;
+}

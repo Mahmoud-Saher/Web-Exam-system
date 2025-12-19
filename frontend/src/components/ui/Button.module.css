@@ -1,0 +1,40 @@
+/* src/components/ui/Button.module.css */
+
+.buttonBase {
+  padding: 0.5rem 1rem; /* 8px 16px */
+  font-weight: 600;
+  border-radius: 0.5rem; /* 8px */
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.buttonBase:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.primary {
+  background-color: #2563eb; /* أزرق */
+  color: white;
+}
+.primary:hover {
+  background-color: #1d4ed8;
+}
+
+.secondary {
+  background-color: #e5e7eb; /* رمادي فاتح */
+  color: #1f2937; /* رمادي غامق */
+}
+.secondary:hover {
+  background-color: #d1d5db;
+}
+
+.danger {
+  background-color: #dc2626; /* أحمر */
+  color: white;
+}
+.danger:hover {
+  background-color: #b91c1c;
+}

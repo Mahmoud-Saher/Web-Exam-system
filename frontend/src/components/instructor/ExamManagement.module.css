@@ -1,0 +1,77 @@
+/* src/components/instructor/ExamManagement.module.css */
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* عمودين */
+  gap: 2rem; /* 32px */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* 20px */
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 0.5rem; /* 8px */
+  color: #374151;
+}
+
+/* --- Question Checklist --- */
+.questionList {
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.questionItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* 12px */
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.questionItem:hover {
+  background-color: #f3f4f6; /* رمادي فاتح */
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+}
+
+/* --- Existing Exams List --- */
+.examList {
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.examItem {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.examTitle {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 1.1rem;
+}
+
+.examDetails {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-top: 0.5rem;
+}

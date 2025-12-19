@@ -1,0 +1,85 @@
+/* src/components/instructor/QuestionBank.module.css */
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* عمودين */
+  gap: 2rem; /* 32px */
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* 20px */
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 0.5rem; /* 8px */
+  color: #374151;
+}
+
+/* سنستخدم مكون Input الخاص بنا، لكننا نضيف له كلاس خاص */
+.textarea {
+  min-height: 80px;
+  font-family: inherit; /* ليستخدم نفس الخط */
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem; /* 16px */
+}
+
+.select {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background-color: white;
+}
+
+
+
+.questionList {
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.questionItem {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.questionText {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+}
+
+.option {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-left: 1rem;
+  position: relative;
+}
+
+.correctOption {
+  color: #16a34a; /* أخضر */
+  font-weight: 600;
+}
+
+.correctOption::before {
+  content: '✓';
+  position: absolute;
+  left: -1.25rem;
+  color: #16a34a;
+}
